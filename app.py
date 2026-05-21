@@ -1,6 +1,5 @@
 import os
 import base64
-import requests
 from flask import Flask, render_template, request, jsonify
 from werkzeug.utils import secure_filename
 from openai import OpenAI
@@ -12,8 +11,9 @@ app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB max upload
 
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
 
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "YOUR_API_KEY_HERE")
 client = OpenAI(api_key=OPENAI_API_KEY)
+
 
 # ── Helpers ────────────────────────────────────────────────────────────────
 def allowed_file(filename):
